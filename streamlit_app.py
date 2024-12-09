@@ -12,7 +12,7 @@ data = {
  
 df = pd.DataFrame(data)
  
-st.write(data)
+st.write(data,1)
 
 df.to_csv("data.csv")
          
