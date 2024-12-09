@@ -17,6 +17,8 @@ def get_sql_engine():
                                                 mysql_config['port'], mysql_config['db']))
     return engine
 
+st.title('database test')
+
 # 连接到MySQL数据库
 conn = pymysql.connect(host='mysql.sqlpub.com', user='rebecca_leee', password='8p8cMQhcstwVg4q5', db='effective_baking')
  
