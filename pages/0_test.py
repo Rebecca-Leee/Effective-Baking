@@ -1,5 +1,6 @@
-import streamlit as st
+
 import pandas as pd
+import streamlit as st
 import pymysql
 from sqlalchemy import create_engine, text
 
@@ -17,6 +18,8 @@ def get_sql_engine():
                                                 mysql_config['port'], mysql_config['db']))
     return engine
 
+st.title('database test')
+
 # 连接到MySQL数据库
 conn = pymysql.connect(host='mysql.sqlpub.com', user='rebecca_leee', password='8p8cMQhcstwVg4q5', db='effective_baking')
  
@@ -25,10 +28,6 @@ cursor = conn.cursor()
  
 # 执行一条SQL查询语句:
 cursor.execute("SELECT VERSION()")
- 
-# 获取查询结果:
-data = cursor.fetchone()
-print("Database version : %s " % data)
  
 # 关闭Cursor和Connection:
 cursor.close()
