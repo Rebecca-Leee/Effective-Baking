@@ -1,3 +1,4 @@
+
 import pandas as pd
 import streamlit as st
 import pymysql
@@ -34,12 +35,13 @@ conn.close()
 
 engine = get_sql_engine()
 
+
 data = {"a":[1,2],"b":["x","y"]}
 df = pd.DataFrame(data)
 
-data_edit = st.data_editor(df)
+df_edit = st.data_editor(df)
 
-df.to_sql('test_df', con=engine, if_exists='replace', index=False)
+df_edit.to_sql('test_df', con=engine, if_exists='replace', index=False)
 
 test = pd.read_sql_query(text('select * from test_df'), con=engine.connect())
 st.write(test.head())
