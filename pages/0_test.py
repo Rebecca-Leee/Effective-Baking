@@ -36,8 +36,9 @@ conn.close()
 engine = get_sql_engine()
 
 
-data = {"a":[1,2],"b":["x","y"]}
-df = pd.DataFrame(data)
+# data = {"a":[1,2],"b":["x","y"]}
+df = pd.read_sql_query(text('select * from test_df'), con=engine.connect())
+
 
 df_edit = st.data_editor(df)
 
